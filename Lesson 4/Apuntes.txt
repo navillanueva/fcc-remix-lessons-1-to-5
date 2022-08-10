@@ -1,0 +1,34 @@
+THE ORACLE PROBLEM
+
+    Chainlink y blockchain oracles: cualquier dispositivo que interactua con el mundo real para proporcionar data externa a la blockchain a los smart contracts
+
+    Chainlink data feeds: network of chainlink nodes gets the price of a currency in several platforms and returns the average price
+
+    Chainlink VRF: producen numeros que se pueden demostrar que son aleatorios
+
+    Chainlink Keepers: una herramienta para ejecutar contratos a ciertas horas o cuando se cumple ciertos requisitos (MUY UTIL)
+
+    GET request: chainlink nodes can make direct request to any direct api you want. You have to be responsible for creating the networks
+
+
+
+
+SAFEMATH
+
+    Es una librería de OpenZeppelin y fue una de las más usadas durante mucho tiempo.
+
+    POV: tiene pinta de que las operaciones en los contratos acaban complicando mucho los gastos, y en función de en que orden operes y como estén colocados
+    puede significar una gran diferencia en el coste final de gas del contrato.
+
+    Se utilizo antes de la version 0.8 de solidity
+
+    WARNING: esta parte del video no las has seguido programando porque está anticuada
+
+    RESUMEN:    antes si te pasabas de la capacidad de un numero, volvía a cero OVERLFOW (ejemplo uint8 cuando llegaba a 256 se volvía a cero).
+                SafeMath era una librería que se encargaba de arreglar este problema
+                En las versiones de 0.8 se arregló esto y si un número va a superar su rango, el contrato te devuelve un error 
+                si añadimos UNCHECKED delante de la variable, es como volver a la version cuando si había overflow la variable se ponia a cero
+                
+                El motivo de porque puede ser útil un UNCHECKED es porque si sabemos que nunca va a llegar al máximo una variable, marcarla como 
+                unchecked nos ayuda a ahorrar en costes de gas del contrato
+                
